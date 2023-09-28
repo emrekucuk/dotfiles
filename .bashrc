@@ -123,13 +123,12 @@ fi
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-#export PS1="\[\e[43;37m\]\u@\h:\[\e[44;37m\]\w:\[\e[43;37m\]\$(parse_git_branch)\[\e[00m\] [\A]\n$ "
-export PS1="\[\e[41;37m\]\u@\h:\[\e[42;35m\]\w:\[\e[41;37m\]$(parse_git_branch)\[\e[00m\] [\A]\n$"
+export PS1="\[\e[41;37m\]\u@\h:\[\e[42;35m\]\w:\[\e[41;37m\]\$(parse_git_branch)\[\e[00m\] [\A]\n$ "
 
 #### Change terminal title
 PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
-export PATH="$PATH:/usr/share/dotnet/"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+##############################################
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
